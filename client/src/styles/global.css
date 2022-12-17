@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@200&display=swap'); */
+
+::-webkit-scrollbar {
+  width: 0.3em;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(52, 52, 52);
+  outline: 1px solid rgb(15, 0, 32);
+}
+
+img {
+  object-fit: cover;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.status {
+  padding: 20px 10px;
+}
+
+@media (max-width: 768px) {
+  .message {
+    height: calc(100vh - 100px);
+  }
+  .right_message,
+  .left_message {
+    display: none;
+  }
+}
+
+/* --------------- AUTH ---------------------- */
+/* @import url('../../client/src/styles/auth.css'); */
+
+/* --------------- Loading ------------------- */
+@import url("./loading.css");
+
+/* --------------- Navbar --------------------- */
+@import url("./navbar.css");
+
+/* --------------- Sidebar ----------------------- */
+@import url("./sidebar.css");
+
+/* --------------- Avatar ----------------------- */
+@import url("./avatar.css");
+
+/* ---------------- Profile --------------------- */
+@import url("./profile.css");
+
+/* ---------------- Home ------------------------ */
+@import url("./home.css");
+
+/* --------------- Comment ----------------------- */
+@import url("./comment.css");
+
+/* --------------- Post Thumb ---------------------- */
+@import url("./post_thumb.css");
+
+/* ---------------- Message ------------------------ */
+@import url("./message.css");
+
+/* ----------------- Icons -------------------------- */
+@import url("./icons.css");
+
+/* ----------------- Call ---------------------------- */
+@import url("./callModal.css");

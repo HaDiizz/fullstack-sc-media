@@ -1,0 +1,42 @@
+.reactions_nm {
+    display: grid;
+    grid-template-columns: repeat(8, 50px);
+    text-align: center;
+    cursor: pointer;
+}
+.reactions {
+    display: grid;
+    grid-template-columns: repeat(5, 50px);
+    text-align: center;
+    cursor: pointer;
+}
+.reactions span {
+    margin: 3px 0;
+}
+
+@media (max-width: 769px) {
+    .reactions {
+        display: grid;
+        grid-template-columns: repeat(5, 50px);
+        text-align: center;
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 428px) {
+    .reactions {
+        display: grid;
+        grid-template-columns: repeat(4, 50px);
+        text-align: center;
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 360px) {
+    .reactions {
+        display: grid;
+        grid-template-columns: repeat(4, 50px);
+        text-align: center;
+        cursor: pointer;
+    }
+}
