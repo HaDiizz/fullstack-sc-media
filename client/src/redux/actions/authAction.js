@@ -1,6 +1,7 @@
 import { postDataAPI } from "../../utils/fetchData";
 import { GLOBALTYPES } from "./globalTypes";
 import valid from "../../utils/valid";
+import axios from "axios";
 
 export const login = (data) => async (dispatch) => {
   try {
@@ -12,6 +13,7 @@ export const login = (data) => async (dispatch) => {
       payload: { token: res.data.access_token, user: res.data.user },
     });
     localStorage.setItem("firstLogin", true);
+    localStorage.setItem("rf_token",  res.data.refresh_token);
 
     dispatch({ type: GLOBALTYPES.ALERT, payload: { success: res.data.msg } });
   } catch (err) {
@@ -24,10 +26,12 @@ export const login = (data) => async (dispatch) => {
 
 export const refreshToken = () => async (dispatch) => {
   const firstLogin = localStorage.getItem("firstLogin");
+  const rf_token = localStorage.getItem("rf_token");
   if (firstLogin) {
     dispatch({ type: GLOBALTYPES.ALERT, payload: { loading: true } });
     try {
-      const res = await postDataAPI("refresh_token");
+
+      const res = await postDataAPI("refresh_token", {rf_token});
       dispatch({
         type: GLOBALTYPES.AUTH,
         payload: { token: res.data.access_token, user: res.data.user },

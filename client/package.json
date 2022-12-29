@@ -1,8 +1,8 @@
 {
   "name": "client",
-  "proxy": "http://localhost:5000/",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
@@ -57,5 +57,6 @@
     "autoprefixer": "^10.4.7",
     "postcss": "^8.4.14",
     "tailwindcss": "^3.1.4"
-  }
+  },
+  "proxy": "https://server-sc.onrender.com"
 }

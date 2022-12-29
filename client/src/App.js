@@ -90,8 +90,10 @@ export default function App() {
 
   useEffect(() => {
     dispatch(refreshToken());
+  }, [dispatch])
 
-    const socket = io();
+  useEffect(() => {
+    const socket = io("https://server-sc.onrender.com");
     dispatch({ type: GLOBALTYPES.SOCKET, payload: socket });
 
     return () => socket.close();
@@ -152,9 +154,9 @@ export default function App() {
                     path="/"
                     element={auth.token ? <Home /> : <Login />}
                   />
-                  <Route exact path="/register" element={<Register />} />
-                  <Route exact path="/:page" element={<PageRender />} />
-                  <Route exact path="/:page/:id" element={<PageRender />} />
+                  <Route path="/register" element={auth.token ? <Home /> : <Register />} />
+                  <Route path="/:page" element={<PageRender />} />
+                  <Route path="/:page/:id" element={<PageRender />} />
                 </Routes>
               </div>
             </>
@@ -167,8 +169,8 @@ export default function App() {
                     path="/"
                     element={auth.token ? <Home /> : <Login />}
                   />
-                  <Route exact path="/:page" element={<PageRender />} />
-                  <Route exact path="/:page/:id" element={<PageRender />} />
+                  <Route path="/:page" element={<PageRender />} />
+                  <Route path="/:page/:id" element={<PageRender />} />
                 </Routes>
               </section>
             </>

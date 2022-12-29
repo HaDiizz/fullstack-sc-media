@@ -68,7 +68,6 @@ const authCtrl = {
 
       const access_token = createAccessToken({ id: user._id });
       const refresh_token = createRefreshToken({ id: user._id });
-
       res.cookie("refreshtoken", refresh_token, {
         httpOnly: true,
         path: "/api/refresh_token",
@@ -78,6 +77,7 @@ const authCtrl = {
       res.json({
         msg: "เข้าสู่ระบบสำเร็จ",
         access_token,
+        refresh_token,
         user: {
           ...user._doc,
           password: "",
@@ -97,7 +97,7 @@ const authCtrl = {
   },
   generateAccessToken: async (req, res) => {
     try {
-      const rf_token = req.cookies.refreshtoken;
+      const rf_token = req.body.rf_token;
       if (!rf_token) return res.status(400).json({ msg: "กรุณาเข้าสู่ระบบ" });
 
       jwt.verify(
